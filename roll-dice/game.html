@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player">
+        <div class="turn-indicator" id="turnIndicatorFirst"></div>
+        <h2 id="usernameTextFirst"></h2>
+        <div class="dice" id="diceFirst"></div>
+        <p id="totalFirst"></p>
+        <p id="currentFirst"></p>
+    </div>
+    <span class="border"></span>
+    <a href="index.html" class="btn new-game">New Game</a>
+    <button class="btn stop" id="stop">Stop</button>
+    <button class="btn roll" id="roll">Roll</button>
+    <div class="player">
+        <div class="turn-indicator" id="turnIndicatorSecond"></div>
+        <h2 id="usernameTextSecond"></h2>
+        <div class="dice" id="diceSecond"></div>
+        <p id="totalSecond"></p>
+        <p id="currentSecond"></p>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

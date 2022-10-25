@@ -1,0 +1,205 @@
+$text-color: #56a5eb;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    background-color: #ecf5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1,
+h2 {
+    font-size: 10rem;
+    text-align: center;
+    color: $text-color;
+    
+}
+
+h2 {
+    width: 70rem;
+    font-size: 7rem;
+    margin-bottom: 50vh;
+}
+
+.btn {
+    position: absolute;
+    width: 20rem;
+    height: 5rem;
+    bottom: 5rem;
+    right: 10rem;
+    border: 2px solid $text-color;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: #56a5eb;
+    transition: all .3s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin-top: 10rem;
+
+    .input-container {
+        width: 20rem;
+        height: 5rem;
+        text-align: center;
+        font-size: 2.5rem;
+        border: 2px solid $text-color;
+        border-radius: 10px;
+        background-color: transparent;
+        margin-top: 2rem;
+    }
+}
+
+.player {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .turn-indicator {
+        width: 5rem;
+        height: 5rem;
+        background-color: $text-color;
+        position: absolute;
+        border-radius: 20px;
+        top: 2rem;
+        box-shadow: 0 0.4rem 1.4rem .5rem rgba(86, 185, 235, 0.5);
+    }
+
+    #turnIndicatorFirst {
+        right: 10rem;
+    }
+
+    #turnIndicatorSecond {
+        left: 10rem;
+    }
+
+    .turn-indicator.true {
+        background-color: green;
+    }
+
+    .turn-indicator.false {
+        background-color: red;
+    }
+
+    .dice {
+        position: absolute;
+        width: 20rem;
+        height: 20rem;
+        background-color: $text-color;
+        margin-top: 10rem;
+        background-size: cover;
+        background-position: center;
+        border-radius: 20%;
+        box-shadow: 0 0.4rem 1.4rem .5rem rgba(86, 185, 235, 0.5);
+
+    }
+
+    .dice.one {
+        background-image: url(/roll-dice/roll-dice/slike/1.png);
+    }
+
+    .dice.two {
+        background-image: url(/roll-dice/roll-dice/slike/2.png);
+    }
+
+    .dice.three {
+        background-image: url(/roll-dice/roll-dice/slike/3.png);
+    }
+
+    .dice.four {
+        background-image: url(/roll-dice/roll-dice/slike/4.png);
+    }
+
+    .dice.five {
+        background-image: url(/roll-dice/roll-dice/slike/5.png);
+    }
+
+    .dice.six {
+        background-image: url(/roll-dice/roll-dice/slike/6.png);
+    }
+
+    #totalFirst,
+    #totalSecond,
+    #currentFirst,
+    #currentSecond {
+        width: 15rem;
+        font-size: 2.5rem;
+        color: $text-color;
+        height: 5rem;
+        position: absolute;
+        bottom: 25rem;
+        border-bottom: .2rem solid $text-color;
+        display: flex;
+        align-items: center;
+    }
+
+    #currentFirst,
+    #currentSecond {
+        bottom: 20rem;
+    }
+}
+
+.border {
+    position: absolute;
+    height: 100%;
+    width: 1rem;
+    border-radius: 10px;
+    background-color: $text-color;
+}
+
+.new-game,
+.stop,
+.roll {
+    bottom: initial;
+    right: initial;
+    width: 15rem;
+    z-index: 5;
+    background-color: #fff;
+    white-space: nowrap;
+}
+
+.new-game {
+    top: 4rem;
+}
+
+.roll {
+    bottom: 10rem;
+}
+
+.stop {
+    bottom: 4rem;
+}
+
+.home-btn {
+    right: initial;
+    bottom: 5rem;
+}
+
