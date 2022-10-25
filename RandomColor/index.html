@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color</title>
+    <link rel="stylesheet" href="randomColor.css">
+</head>
+<body>
+    <div class="info">
+        <h1>Pick The Color</h1>
+        <form>
+            <input type="text" class="input-container" id="username" name="username" placeholder="Username">
+            <button type="submit" class="input-container" id="submitF" value="Submit" disabled>Submit</button>
+        </form>
+        <p class="code-display">#</p>
+        <div class="generator-container">
+            <button class="generator">Generate Code</button>
+            <ul class="hidden-nav">
+              <li class="hidden-btn" id="rgbBtn">Rgb</li>
+              <li class="hidden-btn" id="hexaBtn">Hexa</li>
+            </ul>
+        </div>
+    </div>
+    <div class="choices-container">
+        <div class="choice choice-topleft">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+        <div class="choice choice-topmid">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+        <div class="choice choice-topright">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+        <div class="choice choice-btmleft">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+        <div class="choice choice-btmmid">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+        <div class="choice choice-btmright">
+            <span class="line"></span>
+            <span class="line-sub"></span>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
