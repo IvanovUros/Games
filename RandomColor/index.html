@@ -11,8 +11,19 @@
     <div class="info">
         <h1>Pick The Color</h1>
         <form>
-            <input type="text" class="input-container" id="username" name="username" placeholder="Username">
-            <button type="submit" class="input-container" id="submitF" value="Submit" disabled>Submit</button>
+            <input 
+            type="text" 
+            class="input-container" 
+            id="username" 
+            name="username" 
+            placeholder="Username">
+            <button 
+            type="submit" 
+            class="input-container" 
+            id="submit" 
+            value="Submit" 
+            onclick="saveUsername(event)" 
+            disabled>Submit</button>
         </form>
         <p class="code-display">#</p>
         <div class="generator-container">
@@ -24,30 +35,22 @@
         </div>
     </div>
     <div class="choices-container">
-        <div class="choice choice-topleft">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
-        <div class="choice choice-topmid">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
-        <div class="choice choice-topright">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
-        <div class="choice choice-btmleft">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
-        <div class="choice choice-btmmid">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
-        <div class="choice choice-btmright">
-            <span class="line"></span>
-            <span class="line-sub"></span>
-        </div>
+        <div class="choice choice-topleft"></div>
+        <div class="choice choice-topmid"></div>
+        <div class="choice choice-topright"></div>
+        <div class="choice choice-btmleft"></div>
+        <div class="choice choice-btmmid"></div>
+        <div class="choice choice-btmright"></div>
+    </div>
+    <div class="highscores-container">
+        <button class="save-score" onclick="saveHighScore()">New Game</button>
+        <h1>HighScores</h1>
+        <ul class="highscores-title">
+            <li class="ime">Ime</li>
+            <li class="score">Score</li>
+        </ul>
+        <ul class="highscores-list--name" id="highScoresListName"></ul>
+        <ul class="highscores-list--score" id="highScoresListScore"></ul>
     </div>
     <script src="game.js"></script>
 </body>

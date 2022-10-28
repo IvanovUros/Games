@@ -55,7 +55,7 @@
   background-color: #fff;
   border: 1px solid #56a5eb;
   border-radius: 50px;
-  color: #fff;
+  color: #333;
   margin-top: 7rem;
 }
 .info .generator-container {
@@ -107,7 +107,7 @@
 
 .choices-container {
   width: 100%;
-  height: 35rem;
+  height: 40rem;
   border-bottom: 0.5rem solid #56a5eb;
   position: relative;
   display: flex;
@@ -129,16 +129,18 @@
   align-items: center;
   background-color: transparent;
   transition: all 0.4s ease-in;
+  font-size: 1.5rem;
+  color: #fff;
 }
 .choices-container .choice-topleft,
 .choices-container .choice-topmid,
 .choices-container .choice-topright {
-  top: 1.5rem;
+  top: 2.5rem;
 }
 .choices-container .choice-btmleft,
 .choices-container .choice-btmmid,
 .choices-container .choice-btmright {
-  bottom: 1.5rem;
+  bottom: 5rem;
 }
 .choices-container .choice-topleft,
 .choices-container .choice-btmleft {
@@ -148,18 +150,78 @@
 .choices-container .choice-btmright {
   right: 10rem;
 }
-.choices-container .line,
-.choices-container .line-sub {
-  width: 40%;
-  height: 0.2rem;
-  background-color: transparent;
+.choices-container .correct {
+  box-shadow: 0 0 1.5rem 0.5rem green;
+}
+
+.highscores-container {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.highscores-container .save-score {
+  width: 20rem;
   position: absolute;
+  height: 5rem;
+  border-radius: 30px;
+  background-color: #fff;
+  top: -2.5rem;
+  display: none;
+}
+.highscores-container .highscores-title {
+  position: absolute;
+  width: 10%;
+  top: 10rem;
+  left: 0;
+  height: 10rem;
+  border-right: 0.1rem solid #333;
+}
+.highscores-container .highscores-title .ime,
+.highscores-container .highscores-title .score {
+  width: 100%;
+  height: 50%;
+  display: inline-block;
+  border-bottom: 0.1rem solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #56a5eb;
+}
+.highscores-container .highscores-list--name,
+.highscores-container .highscores-list--score {
+  position: relative;
+  width: 90%;
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  height: 5rem;
+  border-bottom: 0.1rem solid #333;
+}
+.highscores-container .highscores-list--name .high-score--name,
+.highscores-container .highscores-list--name .high-score--score,
+.highscores-container .highscores-list--score .high-score--name,
+.highscores-container .highscores-list--score .high-score--score {
+  float: left;
+  width: 20%;
+  height: 100%;
+  border-left: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #56a5eb;
+}
+.highscores-container .highscores-list--score {
+  top: 15rem;
+}
+.highscores-container h1 {
+  font-size: 4rem;
+  color: #56a5eb;
+  height: 5rem;
+  margin-top: 3rem;
+  border-bottom: 0.5rem solid #56a5eb;
   border-radius: 2px;
-  transition: all 0.4s ease-in;
-}
-.choices-container .line {
-  rotate: 45deg;
-}
-.choices-container .line-sub {
-  rotate: -45deg;
 }/*# sourceMappingURL=randomColor.css.map */

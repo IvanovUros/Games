@@ -58,7 +58,7 @@
         background-color: #fff;
         border: 1px solid #56a5eb;
         border-radius: 50px;
-        color: #fff;
+        color: #333;
         margin-top: 7rem;
     }
 
@@ -117,7 +117,7 @@
 
 .choices-container {
    width: 100%;
-   height: 35rem;
+   height: 40rem;
    border-bottom: .5rem solid #56a5eb;
    position: relative;
    display: flex;
@@ -139,18 +139,20 @@
     align-items: center;
     background-color: transparent;
     transition: all .4s ease-in;
+    font-size: 1.5rem;
+    color: #fff;
    }
 
    .choice-topleft,
    .choice-topmid,
    .choice-topright {
-    top: 1.5rem;
+    top: 2.5rem;
    }
 
    .choice-btmleft,
    .choice-btmmid,
    .choice-btmright {
-    bottom: 1.5rem;
+    bottom: 5rem;
    }
 
    .choice-topleft,
@@ -163,21 +165,85 @@
     right: 10rem;
    }
    
-   .line,
-   .line-sub {
-    width: 40%;
-    height: .2rem;
-    background-color: transparent;
-    position: absolute;
-    border-radius: 2px;
-    transition: all .4s ease-in;
+   .correct {
+    box-shadow: 0 0 1.5rem .5rem green;
    }
+}
 
-   .line {
-    rotate: 45deg;
-   }
+.highscores-container {
+    width: 100%;
+    height: 20rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
 
-   .line-sub {
-    rotate: -45deg;
-   }
+
+    .save-score {
+      width: 20rem;
+      position: absolute;
+      height: 5rem;
+      border-radius: 30px;
+      background-color: #fff;
+      top: -2.5rem;
+      display: none;
+    }
+
+    .highscores-title {
+        position: absolute;
+        width: 10%;
+        top: 10rem;
+        left: 0;
+        height: 10rem;
+        border-right: .1rem solid #333;
+
+        .ime,
+        .score {
+            width: 100%;
+            height: 50%;
+            display: inline-block;
+            border-bottom: .1rem solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #56a5eb;
+        }
+    }
+
+    .highscores-list--name,
+    .highscores-list--score {
+        position: relative;
+        width: 90%;
+        position: absolute;
+        right: 0;
+        top: 10rem;
+        height: 5rem;
+        border-bottom: .1rem solid #333;
+
+        .high-score--name,
+        .high-score--score {
+            float: left;
+            width: calc(100%/5);
+            height: 100%;
+            border-left: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #56a5eb;
+        }
+    }
+
+    .highscores-list--score {
+        top: 15rem;
+    }
+
+    h1 {
+        font-size: 4rem;
+        color: #56a5eb;
+        height: 5rem;
+        margin-top: 3rem;
+        border-bottom: .5rem solid #56a5eb;
+        border-radius: 2px;
+    }
 }
