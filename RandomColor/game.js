@@ -53,8 +53,8 @@ function saveHighScore() {
       score: turn,
       name: username.value
     }
-    highScores.push(score);
-    highScores.sort((a,b) => a.score - b.score);
+    highScores.unshift(score);
+    // highScores.sort((a,b) => a.score - b.score);
     highScores.splice(5);
     localStorage.setItem('highScores',JSON.stringify (highScores));
     location.reload();
@@ -96,6 +96,7 @@ function correctChoice(x) {
         gameEnd = true;
         choiceClickable = false;
         console.log(gameEnd);
+        codeDisplay.style.backgroundColor = correctRGB;
     };
     if(givenHexa) {
         x.innerText = '#' + correctHexa;
@@ -103,6 +104,7 @@ function correctChoice(x) {
         gameEnd = true;
         choiceClickable = false;
         console.log(gameEnd);
+        codeDisplay.style.backgroundColor = '#' + correctHexa;
     }
   };
   newGameBtn.style.display = 'block';
