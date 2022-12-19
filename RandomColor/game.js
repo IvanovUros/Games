@@ -39,7 +39,6 @@ username.addEventListener('keyup', () => {
 
 saveUsername = e => {
   localStorage.setItem('mostRecentUsername', username.value);
-  console.log(1);
   e.preventDefault();
   username.disabled = true;
   submit.disabled = true;
@@ -47,7 +46,6 @@ saveUsername = e => {
 };
 
 function saveHighScore() {
-  console.log(1);
   if (gameEnd) {
     const score = {
       score: turn,
@@ -95,7 +93,6 @@ function correctChoice(x) {
         x.classList.add('correct');
         gameEnd = true;
         choiceClickable = false;
-        console.log(gameEnd);
         codeDisplay.style.backgroundColor = correctRGB;
     };
     if(givenHexa) {
@@ -103,7 +100,6 @@ function correctChoice(x) {
         x.classList.add('correct');
         gameEnd = true;
         choiceClickable = false;
-        console.log(gameEnd);
         codeDisplay.style.backgroundColor = '#' + correctHexa;
     }
   };
@@ -119,234 +115,233 @@ function wrongChoice(x) {
         x.innerText = '#' + randomHexa;
     };
     turn++;
-    console.log(turn);
     setTimeout(dissapear, 1000, x);
   };
 };
 
 function gameStart () {
-    correctHexa = randomHexa;
-    correctRGB = randomRGB;
-    choices.forEach(choices => {
-        choices.style.borderColor = '#333';
-    });
-    integer = Math.floor(Math.random()* 6);
-    if (integer == 0) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = correctRGB;
-            choiceTopMid.style.backgroundColor = getRandomRGB();
-            choiceTopRight.style.backgroundColor = getRandomRGB();
-            choiceBtmLeft.style.backgroundColor = getRandomRGB();
-            choiceBtmMid.style.backgroundColor = getRandomRGB();
-            choiceBtmRight.style.backgroundColor = getRandomRGB();
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + correctHexa;
-            choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
-        };
-        choiceTopLeft.addEventListener('click', () => {
-          correctChoice(choiceTopLeft);
-        });
-        choiceTopMid.addEventListener('click', () => {
-          wrongChoice(choiceTopMid);
-        });
-        choiceTopRight.addEventListener('click', () => {
-          wrongChoice(choiceTopRight);
-        });
-        choiceBtmLeft.addEventListener('click', () => {
-            wrongChoice(choiceBtmLeft);
-        });
-        choiceBtmMid.addEventListener('click', () => {
-            wrongChoice(choiceBtmMid);
-        });
-        choiceBtmRight.addEventListener('click', () => {
-            wrongChoice(choiceBtmRight);
-        });
-    };
-    if (integer == 1) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = getRandomRGB();
-            choiceTopMid.style.backgroundColor = correctRGB;
-            choiceTopRight.style.backgroundColor = getRandomRGB();
-            choiceBtmLeft.style.backgroundColor = getRandomRGB();
-            choiceBtmMid.style.backgroundColor = getRandomRGB();
-            choiceBtmRight.style.backgroundColor = getRandomRGB();
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopMid.style.backgroundColor = '#' + correctHexa;
-            choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
-        };
-        choiceTopLeft.addEventListener('click', () => {
-          wrongChoice(choiceTopLeft);
-        });
-        choiceTopMid.addEventListener('click', () => {
-          correctChoice(choiceTopMid);
-        });
-        choiceTopRight.addEventListener('click', () => {
-          wrongChoice(choiceTopRight);
-        });
-        choiceBtmLeft.addEventListener('click', () => {
+  correctHexa = randomHexa;
+  correctRGB = randomRGB;
+  choices.forEach(choices => {
+    choices.style.borderColor = '#333';
+  });
+  integer = Math.floor(Math.random()* 6);
+  if (integer == 0) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = correctRGB;
+          choiceTopMid.style.backgroundColor = getRandomRGB();
+          choiceTopRight.style.backgroundColor = getRandomRGB();
+          choiceBtmLeft.style.backgroundColor = getRandomRGB();
+          choiceBtmMid.style.backgroundColor = getRandomRGB();
+          choiceBtmRight.style.backgroundColor = getRandomRGB();
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + correctHexa;
+          choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
+      };
+      choiceTopLeft.addEventListener('click', () => {
+        correctChoice(choiceTopLeft);
+      });
+      choiceTopMid.addEventListener('click', () => {
+        wrongChoice(choiceTopMid);
+      });
+      choiceTopRight.addEventListener('click', () => {
+        wrongChoice(choiceTopRight);
+      });
+      choiceBtmLeft.addEventListener('click', () => {
           wrongChoice(choiceBtmLeft);
-        });
-        choiceBtmMid.addEventListener('click', () => {
+      });
+      choiceBtmMid.addEventListener('click', () => {
           wrongChoice(choiceBtmMid);
-        });
-        choiceBtmRight.addEventListener('click', () => {
-          wrongChoice(choiceBtmRight)
-        });
-    };
-    if (integer == 2) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = getRandomRGB();
-            choiceTopMid.style.backgroundColor = getRandomRGB();
-            choiceTopRight.style.backgroundColor = correctRGB;
-            choiceBtmLeft.style.backgroundColor = getRandomRGB();
-            choiceBtmMid.style.backgroundColor = getRandomRGB();
-            choiceBtmRight.style.backgroundColor = getRandomRGB();
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopRight.style.backgroundColor = '#' + correctHexa;
-            choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
-        };
-        choiceTopLeft.addEventListener('click', () => {
-            wrongChoice(choiceTopLeft);
-         });
-         choiceTopMid.addEventListener('click', () => {
-            wrongChoice(choiceTopMid);
-         });
-         choiceTopRight.addEventListener('click', () => {
-           correctChoice(choiceTopRight);
-         });
-         choiceBtmLeft.addEventListener('click', () => {
-           wrongChoice(choiceBtmLeft);
-         });
-         choiceBtmMid.addEventListener('click', () => {
-           wrongChoice(choiceBtmMid);
-         });
-         choiceBtmRight.addEventListener('click', () => {
-           wrongChoice(choiceBtmRight);
-         });
-    };
-    if (integer == 3) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = getRandomRGB();
-            choiceTopMid.style.backgroundColor = getRandomRGB();
-            choiceTopRight.style.backgroundColor = getRandomRGB();
-            choiceBtmLeft.style.backgroundColor = correctRGB;
-            choiceBtmMid.style.backgroundColor = getRandomRGB();
-            choiceBtmRight.style.backgroundColor = getRandomRGB();
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmLeft.style.backgroundColor = '#' + correctHexa;
-            choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
-        };
-        choiceTopLeft.addEventListener('click', () => {
-            wrongChoice(choiceTopLeft);
-         });
-         choiceTopMid.addEventListener('click', () => {
-            wrongChoice(choiceTopMid);
-         });
-         choiceTopRight.addEventListener('click', () => {
-           wrongChoice(choiceTopRight);
-         });
-         choiceBtmLeft.addEventListener('click', () => {
-           correctChoice(choiceBtmLeft);
-         });
-         choiceBtmMid.addEventListener('click', () => {
-           wrongChoice(choiceBtmMid);
-         });
-         choiceBtmRight.addEventListener('click', () => {
-           wrongChoice(choiceBtmRight);
-         });
-    };
-    if (integer == 4) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = getRandomRGB();
-            choiceTopMid.style.backgroundColor = getRandomRGB();
-            choiceTopRight.style.backgroundColor = getRandomRGB();
-            choiceBtmLeft.style.backgroundColor = getRandomRGB();
-            choiceBtmMid.style.backgroundColor = correctRGB;
-            choiceBtmRight.style.backgroundColor = getRandomRGB();
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmMid.style.backgroundColor = '#' + correctHexa;
-            choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
-        };
-        choiceTopLeft.addEventListener('click', () => {
-            wrongChoice(choiceTopLeft);
-         });
-         choiceTopMid.addEventListener('click', () => {
-            wrongChoice(choiceTopMid);
-         });
-         choiceTopRight.addEventListener('click', () => {
-           wrongChoice(choiceTopRight);
-         });
-         choiceBtmLeft.addEventListener('click', () => {
-           wrongChoice(choiceBtmLeft);
-         });
-         choiceBtmMid.addEventListener('click', () => {
-           correctChoice(choiceBtmMid);
-         });
-         choiceBtmRight.addEventListener('click', () => {
-           wrongChoice(choiceBtmRight);
-         });
-    };
-    if (integer == 5) {
-        if (givenRGB) {
-            choiceTopLeft.style.backgroundColor = getRandomRGB();
-            choiceTopMid.style.backgroundColor = getRandomRGB();
-            choiceTopRight.style.backgroundColor = getRandomRGB();
-            choiceBtmLeft.style.backgroundColor = getRandomRGB();
-            choiceBtmMid.style.backgroundColor = getRandomRGB();
-            choiceBtmRight.style.backgroundColor = correctRGB;
-        };
-        if(givenHexa) {
-            choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
-            choiceBtmRight.style.backgroundColor = '#' + correctHexa;
-        };
-        choiceTopLeft.addEventListener('click', () => {
-            wrongChoice(choiceTopLeft);
-         });
-         choiceTopMid.addEventListener('click', () => {
-            wrongChoice(choiceTopMid);
-         });
-         choiceTopRight.addEventListener('click', () => {
-           wrongChoice(choiceTopRight);
-         });
-         choiceBtmLeft.addEventListener('click', () => {
-           wrongChoice(choiceBtmLeft);
-         });
-         choiceBtmMid.addEventListener('click', () => {
-           wrongChoice(choiceBtmMid);
-         });
-         choiceBtmRight.addEventListener('click', () => {
-           correctChoice(choiceBtmRight);
-         });
-    };
+      });
+      choiceBtmRight.addEventListener('click', () => {
+          wrongChoice(choiceBtmRight);
+      });
+  };
+  if (integer == 1) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = getRandomRGB();
+          choiceTopMid.style.backgroundColor = correctRGB;
+          choiceTopRight.style.backgroundColor = getRandomRGB();
+          choiceBtmLeft.style.backgroundColor = getRandomRGB();
+          choiceBtmMid.style.backgroundColor = getRandomRGB();
+          choiceBtmRight.style.backgroundColor = getRandomRGB();
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopMid.style.backgroundColor = '#' + correctHexa;
+          choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
+      };
+      choiceTopLeft.addEventListener('click', () => {
+        wrongChoice(choiceTopLeft);
+      });
+      choiceTopMid.addEventListener('click', () => {
+        correctChoice(choiceTopMid);
+      });
+      choiceTopRight.addEventListener('click', () => {
+        wrongChoice(choiceTopRight);
+      });
+      choiceBtmLeft.addEventListener('click', () => {
+        wrongChoice(choiceBtmLeft);
+      });
+      choiceBtmMid.addEventListener('click', () => {
+        wrongChoice(choiceBtmMid);
+      });
+      choiceBtmRight.addEventListener('click', () => {
+        wrongChoice(choiceBtmRight);
+      });
+  };
+  if (integer == 2) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = getRandomRGB();
+          choiceTopMid.style.backgroundColor = getRandomRGB();
+          choiceTopRight.style.backgroundColor = correctRGB;
+          choiceBtmLeft.style.backgroundColor = getRandomRGB();
+          choiceBtmMid.style.backgroundColor = getRandomRGB();
+          choiceBtmRight.style.backgroundColor = getRandomRGB();
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopRight.style.backgroundColor = '#' + correctHexa;
+          choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
+      };
+      choiceTopLeft.addEventListener('click', () => {
+          wrongChoice(choiceTopLeft);
+       });
+       choiceTopMid.addEventListener('click', () => {
+          wrongChoice(choiceTopMid);
+       });
+       choiceTopRight.addEventListener('click', () => {
+         correctChoice(choiceTopRight);
+       });
+       choiceBtmLeft.addEventListener('click', () => {
+         wrongChoice(choiceBtmLeft);
+       });
+       choiceBtmMid.addEventListener('click', () => {
+         wrongChoice(choiceBtmMid);
+       });
+       choiceBtmRight.addEventListener('click', () => {
+         wrongChoice(choiceBtmRight);
+       });
+  };
+  if (integer == 3) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = getRandomRGB();
+          choiceTopMid.style.backgroundColor = getRandomRGB();
+          choiceTopRight.style.backgroundColor = getRandomRGB();
+          choiceBtmLeft.style.backgroundColor = correctRGB;
+          choiceBtmMid.style.backgroundColor = getRandomRGB();
+          choiceBtmRight.style.backgroundColor = getRandomRGB();
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmLeft.style.backgroundColor = '#' + correctHexa;
+          choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
+      };
+      choiceTopLeft.addEventListener('click', () => {
+          wrongChoice(choiceTopLeft);
+       });
+       choiceTopMid.addEventListener('click', () => {
+          wrongChoice(choiceTopMid);
+       });
+       choiceTopRight.addEventListener('click', () => {
+         wrongChoice(choiceTopRight);
+       });
+       choiceBtmLeft.addEventListener('click', () => {
+         correctChoice(choiceBtmLeft);
+       });
+       choiceBtmMid.addEventListener('click', () => {
+         wrongChoice(choiceBtmMid);
+       });
+       choiceBtmRight.addEventListener('click', () => {
+         wrongChoice(choiceBtmRight);
+       });
+  };
+  if (integer == 4) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = getRandomRGB();
+          choiceTopMid.style.backgroundColor = getRandomRGB();
+          choiceTopRight.style.backgroundColor = getRandomRGB();
+          choiceBtmLeft.style.backgroundColor = getRandomRGB();
+          choiceBtmMid.style.backgroundColor = correctRGB;
+          choiceBtmRight.style.backgroundColor = getRandomRGB();
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmMid.style.backgroundColor = '#' + correctHexa;
+          choiceBtmRight.style.backgroundColor = '#' + getRandomHexa();
+      };
+      choiceTopLeft.addEventListener('click', () => {
+          wrongChoice(choiceTopLeft);
+       });
+       choiceTopMid.addEventListener('click', () => {
+          wrongChoice(choiceTopMid);
+       });
+       choiceTopRight.addEventListener('click', () => {
+         wrongChoice(choiceTopRight);
+       });
+       choiceBtmLeft.addEventListener('click', () => {
+         wrongChoice(choiceBtmLeft);
+       });
+       choiceBtmMid.addEventListener('click', () => {
+         correctChoice(choiceBtmMid);
+       });
+       choiceBtmRight.addEventListener('click', () => {
+         wrongChoice(choiceBtmRight);
+       });
+  };
+  if (integer == 5) {
+      if (givenRGB) {
+          choiceTopLeft.style.backgroundColor = getRandomRGB();
+          choiceTopMid.style.backgroundColor = getRandomRGB();
+          choiceTopRight.style.backgroundColor = getRandomRGB();
+          choiceBtmLeft.style.backgroundColor = getRandomRGB();
+          choiceBtmMid.style.backgroundColor = getRandomRGB();
+          choiceBtmRight.style.backgroundColor = correctRGB;
+      };
+      if(givenHexa) {
+          choiceTopLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceTopRight.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmLeft.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmMid.style.backgroundColor = '#' + getRandomHexa();
+          choiceBtmRight.style.backgroundColor = '#' + correctHexa;
+      };
+      choiceTopLeft.addEventListener('click', () => {
+          wrongChoice(choiceTopLeft);
+       });
+       choiceTopMid.addEventListener('click', () => {
+          wrongChoice(choiceTopMid);
+       });
+       choiceTopRight.addEventListener('click', () => {
+         wrongChoice(choiceTopRight);
+       });
+       choiceBtmLeft.addEventListener('click', () => {
+         wrongChoice(choiceBtmLeft);
+       });
+       choiceBtmMid.addEventListener('click', () => {
+         wrongChoice(choiceBtmMid);
+       });
+       choiceBtmRight.addEventListener('click', () => {
+         correctChoice(choiceBtmRight);
+       });
+  };
 };
 
 generator.addEventListener('click', () => {
@@ -388,10 +383,3 @@ codeDisplay.addEventListener('click', () => {
         codeDisplayClickable = false;
     };
 });
-
-
-
-
-  
-
-
