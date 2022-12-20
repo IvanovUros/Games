@@ -15,6 +15,17 @@ body {
     align-items: center;
 }
 
+.cover {
+    width: 100vw;
+    height: 0vh;
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    z-index: 10;
+    position: fixed;
+    transition: opacity .5s ease-in-out;
+}
+
 .container {
     height: 100vh;
     width: 100vw;
@@ -71,14 +82,14 @@ button {
         height: 250px;
         border: 1px solid black;
         float: left;
-        margin: 20px 20px 100px 20px;
+        margin: 20px 20px 15rem 20px;
         text-align: center;
         position: relative;
         background-position: center;
         background-size: cover;
 
         .meal-name {
-            font-size: 4rem;
+            font-size: 2.5rem;
             margin-top: 255px;
             color: #56a5eb;
         }
@@ -86,7 +97,7 @@ button {
         .read-more {
             position: absolute;
             top: 0;
-            margin-top: 310px;
+            margin-top: 35rem;
             width: 150px;
             border: 0;
             background-color: #56a5eb;
