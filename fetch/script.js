@@ -3,6 +3,11 @@ const submitBtn = document.getElementById('submit');
 const recepieList = document.querySelector('.recepie-list');
 const cover = document.querySelector('.cover');
 const body = document.getElementById('body');
+const modal = document.querySelector('.modal');
+const closeBtn = document.querySelector('.close-btn-wrapper');
+const modalName = document.querySelector('.name');
+const modalOrigin = document.querySelector('.origin');
+const tryAgainBtn = document.getElementById('tryAgain');
 let ingredient;
 let searchedMeals = [];
 
@@ -11,25 +16,22 @@ input.addEventListener('keyup', () => {
 });
 
 function searchIngredient(x) {
-    // let searchedMeals = [];
     let indicator = 0
     fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=').then((response) => {
         return response.json();
     }).then(data => {
-        // console.log(data)
         data.meals.forEach(meals => {
             fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meals.idMeal}`).then((response) => {
                 return response.json();
             }).then(data => {
-                const meals = data.meals[0];
+                let meals = data.meals[0];
                     for (let i = 0; i <= 20; i++) {
                         if(x == meals[`strIngredient${i}`]) {
                             searchedMeals[indicator] = meals;
                             indicator++;
-                            console.log(meals.strInstructions);
                             recepieList.innerHTML += `<li class="recepie-wrapper">
                             <p class="meal-name">${meals.strMeal}</p>
-                            <button class="read-more" onclick="openModal('${meals.idMeal}','${meals.strMeal}','${meals.strInstructions}')">${meals.strInstructions}</button>
+                            <button class="read-more" onclick="openModal('${meals.strMeal}','${meals.strYoutube}','${meals.strArea}','${meals.strMealThumb}')">Read Me</button>
                             </li>`;
                         }
                     }
@@ -47,29 +49,40 @@ function searchIngredient(x) {
         console.log(err);
     });
 }
+
 submit = e => {
-    console.log(input.value);
     ingredient = input.value;
     input.disabled = true;
     submitBtn.disabled = true;
+    tryAgainBtn.disabled = false;
     searchIngredient(input.value);
 }
 
-function openModal(x,y,z) {
+tryAgain = e => {
+    input.disabled = false;
+    recepieList.innerHTML = '';
+}
+
+function openModal(name,link,area,image) {
     body.style.overflow = 'hidden';
     cover.style.height = '100vh';
     cover.style.opacity = '.6';
-    // console.log(searchedMeals);
-    console.log(x);
-    console.log(y);
-    console.log(z);
-    // console.log(w);
+    modal.style.margin = '0';
+    closeBtn.addEventListener('click',() => {
+        setTimeout(function() {
+            cover.style.opacity = '0';
+        },400);
+        setTimeout(function() {
+            cover.style.height = '0';
+        },600);
+        modal.style.marginTop = '-150%'
+        body.style.overflow = 'visible';
+    });
+    let imgWrapper = document.querySelector('.img-wrapper');
+    imgWrapper.addEventListener('click', () => {
+        window.location.assign(link);
+    });
+    imgWrapper.style.backgroundImage = `url(` + image + `)`;
+    modalName.innerHTML = name;
+    modalOrigin.innerHTML = `Origin: ${area}`;
 }
-
-cover.addEventListener('click',() => {
-    cover.style.height = '0';
-    body.style.overflow = 'visible';
-})
-
-
-

@@ -9,12 +9,21 @@
 </head>
 <body id="body">
     <div class="cover"></div>
+    <div class="modal">
+        <div class="close-btn-wrapper">
+            <span class="btn-line"></span>
+        </div>
+        <div class="img-wrapper"></div>
+        <p class="name"></p>
+        <p class="origin"></p>
+    </div>
     <div class="container">
         <input 
             type="text" 
             id="ingredient" 
             name="ingredient">
             <button
+                class="btn"
                 type="submit"
                 id="submit"
                 value="Submit"
@@ -22,12 +31,14 @@
                 disabled>
                 Submit
             </button>
-            <ul class="recepie-list">
-                <!-- <li class="recepie-wrapper">
-                    <p class="meal-name">Supa</p>
-                    <button class="read-more" onclick="openModal()">Read More</button>
-                </li> -->
-            </ul>
+            <button 
+                class="try-again"
+                id="tryAgain"
+                onclick="tryAgain()"
+                disabled>
+                Try Again
+            </button>
+            <ul class="recepie-list"></ul>
     </div>
     <script src="script.js"></script>
 </body>
