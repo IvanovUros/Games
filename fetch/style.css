@@ -77,16 +77,16 @@ body {
   right: 0;
   margin: 0 auto;
   z-index: 19;
-  text-decoration: none;
-  border: 1px solid black;
+  border-radius: 20px;
 }
 .modal .name,
-.modal .origin {
+.modal .origin,
+.modal .prep {
   position: absolute;
   font-size: 3rem;
   left: 0;
   right: 0;
-  margin: 25rem auto;
+  margin: 20rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +94,26 @@ body {
   text-align: center;
 }
 .modal .origin {
-  margin-top: 35rem;
+  margin-top: 30rem;
+}
+.modal .prep {
+  font-size: 1.7rem;
+  margin: 35rem 25px 0 25px;
+  height: 21.5rem;
+  overflow: auto;
+}
+.modal .watch {
+  position: absolute;
+  bottom: 25px;
+  width: 15rem;
+  height: 2.5rem;
+  border-radius: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: #ecf5ff;
+  border: 0;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
 }
 
 .container {
@@ -106,8 +125,17 @@ body {
   justify-content: center;
   position: relative;
 }
-
-input {
+.container .container-heading {
+  width: 100%;
+  height: 40%;
+  border-radius: 20px;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  position: relative;
+  position: absolute;
+  top: 2rem;
+}
+.container .container-heading input {
   width: 300px;
   height: 50px;
   text-align: center;
@@ -119,28 +147,40 @@ input {
   left: 0;
   right: 0;
   top: 0;
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
-
-.btn,
-.try-again {
+.container .container-heading .btn,
+.container .container-heading .try-again {
   width: 250px;
   height: 40px;
   border-radius: 10px;
   background-color: white;
   text-align: center;
-  border: 1px solid black;
+  border: 0;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  margin: 20rem auto;
+  margin: 15rem auto;
   font-size: 2rem;
-  color: grey;
+  color: rgb(80, 79, 79);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
 }
-
-.try-again {
-  margin: 25rem auto;
+.container .container-heading .try-again {
+  margin: 20rem auto;
+}
+.container .container-heading .btn:hover,
+.container .container-heading .try-again:hover,
+.container .container-heading .watch:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+.container .container-heading .btn[disabled]:hover,
+.container .container-heading .try-again[disabled]:hover {
+  cursor: not-allowed;
+  transform: none;
 }
 
 .recepie-list {

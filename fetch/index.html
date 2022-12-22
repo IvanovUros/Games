@@ -16,28 +16,32 @@
         <div class="img-wrapper"></div>
         <p class="name"></p>
         <p class="origin"></p>
+        <p class="prep"></p>
+        <button class="watch" onclick="watchVideo()">Preparation</button>
     </div>
     <div class="container">
-        <input 
-            type="text" 
-            id="ingredient" 
-            name="ingredient">
-            <button
-                class="btn"
-                type="submit"
-                id="submit"
-                value="Submit"
-                onclick="submit()"
-                disabled>
-                Submit
-            </button>
-            <button 
-                class="try-again"
-                id="tryAgain"
-                onclick="tryAgain()"
-                disabled>
-                Try Again
-            </button>
+        <div class="container-heading">
+            <input 
+                type="text" 
+                id="ingredient" 
+                name="ingredient">
+                <button
+                    class="btn"
+                    type="submit"
+                    id="submit"
+                    value="Submit"
+                    onclick="submit()"
+                    disabled>
+                    Submit
+                </button>
+                <button 
+                    class="try-again"
+                    id="tryAgain"
+                    onclick="tryAgain()"
+                    disabled>
+                    Try Again
+                </button>
+        </div>
             <ul class="recepie-list"></ul>
     </div>
     <script src="script.js"></script>

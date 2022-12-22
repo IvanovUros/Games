@@ -8,8 +8,11 @@ const closeBtn = document.querySelector('.close-btn-wrapper');
 const modalName = document.querySelector('.name');
 const modalOrigin = document.querySelector('.origin');
 const tryAgainBtn = document.getElementById('tryAgain');
+const prep = document.querySelector('.prep');
 let ingredient;
 let searchedMeals = [];
+
+
 
 input.addEventListener('keyup', () => {
     submitBtn.disabled = !input.value; 
@@ -31,7 +34,7 @@ function searchIngredient(x) {
                             indicator++;
                             recepieList.innerHTML += `<li class="recepie-wrapper">
                             <p class="meal-name">${meals.strMeal}</p>
-                            <button class="read-more" onclick="openModal('${meals.strMeal}','${meals.strYoutube}','${meals.strArea}','${meals.strMealThumb}')">Read Me</button>
+                            <button class="read-more" onclick="openModal('${meals.strMeal}','${meals.strYoutube}','${meals.strArea}','${meals.strMealThumb}','${meals.idMeal}')">Read Me</button>
                             </li>`;
                         }
                     }
@@ -50,20 +53,32 @@ function searchIngredient(x) {
     });
 }
 
-submit = e => {
+submit = () => {
     ingredient = input.value;
     input.disabled = true;
     submitBtn.disabled = true;
     tryAgainBtn.disabled = false;
     searchIngredient(input.value);
+    submitBtn.style.backgroundColor = 'rgb(175, 173, 173)';
+    submitBtn.style.translate = '0';
+    setTimeout(function() {
+        submitBtn.style.backgroundColor = 'white';
+        submitBtn.style.translate = '1px';
+    },150);
 }
 
 tryAgain = e => {
     input.disabled = false;
     recepieList.innerHTML = '';
+    tryAgainBtn.style.backgroundColor = 'rgb(175, 173, 173)';
+    tryAgainBtn.style.translate = '0';
+    setTimeout(function() {
+        tryAgainBtn.style.backgroundColor = 'white';
+        tryAgainBtn.style.translate = '1px';
+    },150);
 }
 
-function openModal(name,link,area,image) {
+function openModal(name,link,area,image,id) {
     body.style.overflow = 'hidden';
     cover.style.height = '100vh';
     cover.style.opacity = '.6';
@@ -78,10 +93,15 @@ function openModal(name,link,area,image) {
         modal.style.marginTop = '-150%'
         body.style.overflow = 'visible';
     });
-    let imgWrapper = document.querySelector('.img-wrapper');
-    imgWrapper.addEventListener('click', () => {
+    watchVideo = () => {
         window.location.assign(link);
-    });
+    }
+    searchedMeals.forEach(elem => {
+        if(id == elem.idMeal) {
+            prep.innerHTML = elem.strInstructions;
+        }
+    })
+    let imgWrapper = document.querySelector('.img-wrapper');
     imgWrapper.style.backgroundImage = `url(` + image + `)`;
     modalName.innerHTML = name;
     modalOrigin.innerHTML = `Origin: ${area}`;
