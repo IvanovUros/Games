@@ -12,11 +12,18 @@ const prep = document.querySelector('.prep');
 let ingredient;
 let searchedMeals = [];
 
-
-
 input.addEventListener('keyup', () => {
     submitBtn.disabled = !input.value; 
 });
+
+btnCliekdAnimation = (x) => {
+    x.style.backgroundColor = 'rgb(175, 173, 173)';
+    x.style.translate = '0';
+    setTimeout(function() {
+        x.style.backgroundColor = 'white';
+        x.style.translate = '1px';
+    },150);
+}
 
 function searchIngredient(x) {
     let indicator = 0
@@ -59,23 +66,13 @@ submit = () => {
     submitBtn.disabled = true;
     tryAgainBtn.disabled = false;
     searchIngredient(input.value);
-    submitBtn.style.backgroundColor = 'rgb(175, 173, 173)';
-    submitBtn.style.translate = '0';
-    setTimeout(function() {
-        submitBtn.style.backgroundColor = 'white';
-        submitBtn.style.translate = '1px';
-    },150);
+    btnCliekdAnimation(submitBtn);
 }
 
 tryAgain = e => {
     input.disabled = false;
     recepieList.innerHTML = '';
-    tryAgainBtn.style.backgroundColor = 'rgb(175, 173, 173)';
-    tryAgainBtn.style.translate = '0';
-    setTimeout(function() {
-        tryAgainBtn.style.backgroundColor = 'white';
-        tryAgainBtn.style.translate = '1px';
-    },150);
+    btnCliekdAnimation(tryAgainBtn);
 }
 
 function openModal(name,link,area,image,id) {
