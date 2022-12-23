@@ -9,21 +9,44 @@
 </head>
 <body>
     <header>
-        <div class="logo-wrapper"></div>
-        <input 
-            type="text"
-            id="search"
-            name="Search">
-        <nav>
-            <ul class="main-nav">
-                <li class="home"></li>
-                <li class="books"></li>
-            </ul>
-        </nav>
-    </header>
+        <div class="gray-wrapper">
+            <div class="logo-wrapper">
+                <img src="./open-book.png" alt="" class="logo">
+                <p class="books">Books</p>
+            </div>
+            <input 
+                type="text"
+                id="search"
+                name="Search">
+        </div>
+            <nav>
+                <ul class="main-nav">
+                    <li class="home">Home</li>
+                    <li class="books">Books</li>
+                </ul>
+            </nav>
+        </header>
     <section class="main-section">
-        <ul class="new-books-wrapper"></ul>
-        <ul class="best-selling-books-wrapper"></ul>
+        <div class="container">
+            <ul class="new-books-wrapper">
+                <p class="heading">New books</p>
+                <span class="orange-border"></span>
+                <!-- <li class="book-wrapper">
+                    <div class="img-wrapper"></div>
+                    <div class="title"></div>
+                    <div class="bottom-wrapper">
+                        <div class="price-wrapper">$5.55</div>
+                        <div class="icon-wrapper">
+                            <img src="./trolley.png" alt="" class="icon">
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+            <ul class="best-selling-books-wrapper">
+                <p class="heading">Best selling books</p>
+                <span class="orange-border"></span>
+            </ul>
+        </div>
     </section>
     <script src="script.js"></script>
 </body>

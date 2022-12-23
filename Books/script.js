@@ -1,3 +1,6 @@
+const newBooksList = document.querySelector('.new-books-wrapper');
+const bestSellingBooksList = document.querySelector('.best-selling-books-wrapper');
+
 let booksLoaded = [];
 let x = 0
 
@@ -23,6 +26,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(booksList);
     highestRating = booksList.slice(0,4);
     console.log(highestRating);
+
+    function loadNewBooks  ()  {
+        let randomIndicator
+        for (let i = 0; i < 4; i++ ) {
+            randomIndicator = Math.floor(Math.random() * booksList.length);
+            newBooksList.innerHTML += `<li class="book-wrapper">
+            <div class="img-wrapper"></div>
+            <div class="title"></div>
+            <div class="bottom-wrapper">
+                <div class="price-wrapper">$</div>
+                <div class="icon-wrapper">
+                    <img src="./trolley.png" alt="" class="icon">
+                </div>
+            </div>
+        </li>`;    
+    }
+    let imgWrapper = Array.from(document.getElementsByClassName('.img-wrapper'));
+    let title = document.querySelector('.title');
+    let priceWrapper = document.querySelector('.price-wrapper');
+    }
+
+    loadNewBooks()
 });
 
 
