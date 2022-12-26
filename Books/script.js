@@ -1,9 +1,12 @@
 const newBooksList = document.querySelector('.new-books-wrapper');
 const bestSellingBooksList = document.querySelector('.best-selling-books-wrapper');
 const allBooksBtn = document.getElementById('allBooksBtn');
-
 let booksLoaded = [];
-let x = 0
+let x = 0;
+
+allBooksBtn.addEventListener('click',() => {
+    window.location.assign('allBooks.html');
+})
 
 let loadBooks = async() => {
     const response = await fetch('https://api.jsonbin.io/v3/b/63a0e753dfc68e59d56c71ec/latest',
@@ -57,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             currentPrice = Math.floor(Math.random() * (1000 - 100) + 100) / 100;
             priceWrapper[i].innerHTML += currentPrice;
             bookWrapperList[i].addEventListener('click',() => {
-                localStorage.setItem('currentObject', JSON.stringify( booksList[y]))
+                localStorage.setItem('currentBook', JSON.stringify( booksList[y]))
             })
         }
     }
@@ -86,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             priceWrapper[i].innerHTML += currentPrice;
             bookWrapperList[i].addEventListener('click',() => {
                 console.log(highestRating[i]);
-                localStorage.setItem('currentObject', JSON.stringify( highestRating[i]))
+                localStorage.setItem('currentBook', JSON.stringify( highestRating[i]))
             })
         }
     }
