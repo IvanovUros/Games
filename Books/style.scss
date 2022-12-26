@@ -104,7 +104,7 @@ header {
         .new-books-wrapper,
         .best-selling-books-wrapper {
             width: 100%;
-            height: 40rem;
+            height: 50rem;
             margin-top: 4rem;
             position: relative;
             display: flex;
@@ -126,16 +126,20 @@ header {
                 top: 2.5rem;
             }
 
-            .book-wrapper {
+            .book-wrapper,
+            .book-wrapper--best-selling {
                 width: 20rem;
-                height: 32rem;
+                height: 40rem;
                 border: 1px solid black;
                 display: block;
                 float: left;
                 margin: 5rem 1rem 0 1rem;
                 position: relative;
+                border-radius: 20px;
+                overflow: hidden;
 
-                .img-wrapper {
+                .img-wrapper,
+                .img-wrapper--best-selling {
                     width: 100%;
                     height: 75%;
                     border-bottom: 1px solid black;
@@ -143,7 +147,8 @@ header {
                     background-size: cover;
                 }
 
-                .title {
+                .title,
+                .title--best-selling {
                     width: 100%;
                     height: auto;
                     text-align: center;
@@ -158,7 +163,8 @@ header {
                     bottom: 0;
                     border-top: 1px solid black;
 
-                    .price-wrapper {
+                    .price-wrapper,
+                    .price-wrapper--best-selling {
                         width: 70%;
                         height: 100%;
                         border-right: 1px solid black;
@@ -178,6 +184,7 @@ header {
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        cursor: pointer;
 
                         .icon {
                             width: 2rem;
