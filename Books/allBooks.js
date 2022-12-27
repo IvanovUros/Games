@@ -19,8 +19,6 @@ for (let i = 0; i < booksAvailable.length; i++) {
 </li>`;
 }
 
-console.log(booksAvailable);
-
 let bookWrapperList = Array.from(document.getElementsByClassName('book-wrapper'));
 let imgWrapper = Array.from(document.getElementsByClassName('img-wrapper'));
 let title = Array.from(document.getElementsByClassName('title'));

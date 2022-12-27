@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 localStorage.setItem('currentBook', JSON.stringify( booksList[y]))
             })
         }
+        bookWrapperList.forEach(elem => {
+            elem.addEventListener('click',() => {
+                window.location.assign('bookInfo.html')
+            })
+        })
     }
 
     function loadBestBooks () {
@@ -92,6 +97,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 localStorage.setItem('currentBook', JSON.stringify( highestRating[i]))
             })
         }
+        bookWrapperList.forEach(elem => {
+            elem.addEventListener('click',() => {
+                window.location.assign('bookInfo.html')
+            })
+        })
     }
 
     loadNewBooks()

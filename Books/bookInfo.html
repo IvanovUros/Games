@@ -5,8 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bookInfo</title>
+    <link rel="stylesheet" href="bookInfo.css">
 </head>
 <body>
-    
+    <header>
+        <div class="gray-wrapper">
+            <div class="logo-wrapper">
+                <img src="./open-book.png" alt="" class="logo">
+                <p class="books">Books</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li class="home">Home</li>
+                <li class="books" id="allBooksBtn">Books</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main-section">
+        <div class="container">
+            <div class="img-wrapper"></div>
+            <p class="title"></p>
+            <span class="orange-border"></span>
+            <ul class="heading-list">
+                <li class="heading">AUTHOR:
+                    <p class="author"></p>
+                </li>
+                <li class="heading">GENRE:
+                    <p class="genre"></p>
+                </li>                
+                <li class="heading">PAGES:
+                    <p class="pages"></p>
+                </li>
+                <li class="heading">AVAILABILITY:
+                    <span class="availability"></span>
+                </li>
+            </ul>
+            <p class="desc-heading">Description</p>
+            <span class="orange-border--lower"></span>
+            <p class="desc"></p>            
+        </div>
+    </section>
+    <script src="bookInfo.js"></script>
 </body>
 </html>
