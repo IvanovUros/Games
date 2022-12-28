@@ -1,6 +1,31 @@
 const homeBtn = document.querySelector('.home');
 let booksAvailable = JSON.parse(localStorage.getItem('availableBooks')) || [];
 const availableBooksList = document.querySelector('.available-books-wrapper');
+const genreList = document.querySelector('.genre-list');
+let availableGenre = [];
+
+fetchGenre = () => {
+    let test = [];
+    let p;
+    booksAvailable.forEach(elem => {
+        p = elem.genre.split(',')
+        test.push(...p)
+    })
+    availableGenre = [...new Set(test)];
+    for (let i = 0; i < availableGenre.length; i++) {
+        genreList.innerHTML += `<li class="genre-wrapper">
+        <p class="genre-text">${availableGenre[i]}</p>
+    </li>`;
+    }
+
+    let genreWrapperList = Array.from(document.getElementsByClassName('genre-wrapper'));
+    genreWrapperList.forEach(elem => {
+        elem.addEventListener('click', () => {
+            console.log(1)
+        })
+    })
+}
+fetchGenre();
 
 homeBtn.addEventListener('click',() => {
     window.location.assign('index.html');

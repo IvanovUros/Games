@@ -9,6 +9,8 @@
     box-sizing: border-box;
 }
 
+$desktop: 1366px;
+
 body {
     height: 100rem;
 }
@@ -104,6 +106,7 @@ header {
     height: auto;
     min-height: 100rem;
 
+    
     .container {
         width: 100%;
         max-width: 900px;
@@ -112,13 +115,72 @@ header {
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        
+        .genre-heading {
+            position: absolute;
+            font-size: 1.7rem;
+            top: 3.0rem;
+            left: 0;
+        }
+
+        .orange-border {
+            width: 100%;
+            height: 3px;
+            background-color: orange;
+            position: absolute;
+            border-radius: 5px;
+            top: 5.5rem;
+        }
+
+        .genre-list {
+            position: absolute;
+            width: 100%;
+            height: 10rem;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3.5rem;
+            display: flex;
+            align-items: center;
+            overflow: auto;
+            list-style-type: none;
+    
+            .genre-wrapper {
+                float: left;
+                position: relative;
+                width: auto;
+                height: 5rem;
+                border: 1px solid black;
+                padding: 0 .5rem;
+                border-radius: 20px;
+                margin-right: 1rem;
+                background-color: rgb(253, 229, 201);
+                margin-top: 3rem;
+                
+                .genre-text {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    white-space: nowrap;
+                }
+            }
+        }
 
         .available-books-wrapper {
             width: 100%;
             height: auto;
             margin-bottom: 4rem;
-            margin-top: 4rem;
+            margin-top: 20rem;
             position: relative;
+            @media screen and (min-width:$desktop) {
+                margin-top: 4rem;
+            }
+
 
             .heading {
                 font-size: 1.7rem;

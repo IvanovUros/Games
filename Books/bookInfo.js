@@ -18,7 +18,6 @@ allBooksBtn.addEventListener('click',() => {
     window.location.assign('allBooks.html')
 })
 
-console.log(currentBook)
 title.innerHTML = currentBook.title;
 imgWrap.style.backgroundImage = `url(${currentBook.img})`;
 author.innerHTML = currentBook.author;
