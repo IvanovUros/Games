@@ -109,13 +109,27 @@ header nav .main-nav .books {
   top: 3rem;
   left: 0;
 }
-.main-section .container .orange-border {
+@media screen and (min-width: 1366px) {
+  .main-section .container .genre-heading {
+    left: -24%;
+    top: 4rem;
+  }
+}
+.main-section .container .orange-border,
+.main-section .container .orange-border--genre {
   width: 100%;
   height: 3px;
   background-color: orange;
   position: absolute;
   border-radius: 5px;
   top: 5.5rem;
+}
+@media screen and (min-width: 1366px) {
+  .main-section .container .orange-border--genre {
+    left: -24.5%;
+    top: 6.5rem;
+    width: 100%;
+  }
 }
 .main-section .container .genre-list {
   position: absolute;
@@ -131,6 +145,15 @@ header nav .main-nav .books {
   overflow: auto;
   list-style-type: none;
 }
+@media screen and (min-width: 1366px) {
+  .main-section .container .genre-list {
+    width: 20rem;
+    height: 40rem;
+    left: -125%;
+    flex-direction: column;
+    top: 5rem;
+  }
+}
 .main-section .container .genre-list .genre-wrapper {
   float: left;
   position: relative;
@@ -142,6 +165,14 @@ header nav .main-nav .books {
   margin-right: 1rem;
   background-color: rgb(253, 229, 201);
   margin-top: 3rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+@media screen and (min-width: 1366px) {
+  .main-section .container .genre-list .genre-wrapper {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 .main-section .container .genre-list .genre-wrapper .genre-text {
   width: 100%;
@@ -151,6 +182,15 @@ header nav .main-nav .books {
   align-items: center;
   position: relative;
   white-space: nowrap;
+}
+@media screen and (min-width: 1366px) {
+  .main-section .container .genre-list .genre-wrapper .genre-text {
+    white-space: normal;
+    text-align: center;
+  }
+}
+.main-section .container .genre-list .genre-wrapper:hover {
+  background-color: rgb(190, 190, 190);
 }
 .main-section .container .available-books-wrapper {
   width: 100%;
