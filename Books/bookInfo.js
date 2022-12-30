@@ -6,9 +6,9 @@ const genre = document.querySelector('.genre');
 const pages = document.querySelector('.pages');
 const availability = document.querySelector('.availability');
 const desc = document.querySelector('.desc');
-let indicator = Math.floor(Math.random() * 2);
 const homeBtn = document.querySelector('.home');
 const allBooksBtn = document.getElementById('allBooksBtn');
+let indicator = Math.floor(Math.random() * 2);
 
 homeBtn.addEventListener('click',() => {
     window.location.assign('index.html');

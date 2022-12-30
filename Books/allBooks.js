@@ -41,13 +41,10 @@ fetchGenre = () => {
                     </div>
                     </li>`;
             })
-
             let bookWrapperList = Array.from(document.getElementsByClassName('book-wrapper'));
             let imgWrapper = Array.from(document.getElementsByClassName('img-wrapper'));
             let title = Array.from(document.getElementsByClassName('title'));
             let priceWrapper = Array.from(document.getElementsByClassName('price-wrapper'));
-            console.log(genreArray);
-
             for (let y = 0; y < genreArray.length; y++) {
                 imgWrapper[y].style.backgroundImage = `url(${genreArray[y].img})`;
                 title[y].innerHTML += genreArray[y].title;
@@ -100,12 +97,8 @@ for (let i = 0; i < bookWrapperList.length; i++) {
     })
 }
 
-
 bookWrapperList.forEach(elem => {
     elem.addEventListener('click',() => {
         window.location.assign('bookInfo.html')
     })
 })
-
-
-
