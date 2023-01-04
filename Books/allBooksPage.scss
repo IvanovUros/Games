@@ -63,6 +63,55 @@ header {
         height: 4rem;
         background-color: white;
         bottom: 0;
+        display: flex;
+        align-items: center;
+
+
+        .back-btn {
+            position: absolute;
+            margin-left: 4rem;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 3.5rem;
+            height: 3.5rem;
+
+            .arrow-container {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                align-items: center;
+                justify-content: center;
+
+                .arrow-line {
+                    width: 2rem;
+                    height: .2rem;
+                    background-color: black;
+                    border-radius: 20px;
+
+                    &::after,
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: .8rem;
+                        height: .2rem;
+                        border-radius: 20px;
+                        background-color: black;
+                    }
+
+                    &::after {
+                        rotate: -45deg;
+                        translate: -1.2rem -.2rem;
+                    }
+
+                    &::before {
+                        rotate: 45deg;
+                        translate: -1.2rem .2rem;
+                    }
+                }
+            }
+        }
 
         .main-nav {
             width: 40%;
@@ -70,6 +119,7 @@ header {
             margin-left: 10rem;
             display: flex;
             align-items: center;
+            // background-color: red;
     
             .home,
             .books {
