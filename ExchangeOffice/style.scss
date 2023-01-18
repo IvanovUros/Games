@@ -76,7 +76,8 @@ header {
             overflow: auto;
             transition: all .3s ease-in;
 
-            .valute {
+            .valute,
+            .valute--right {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -88,7 +89,7 @@ header {
             }
         }
     }
-    
+        
     .left-valute-wrapper { 
         left: 0;
     }

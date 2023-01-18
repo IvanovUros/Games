@@ -79,9 +79,13 @@ header .heading {
   transition: all 0.3s ease-in;
 }
 .container .left-valute-wrapper .left-valute-list .valute,
+.container .left-valute-wrapper .left-valute-list .valute--right,
 .container .left-valute-wrapper .right-valute-list .valute,
+.container .left-valute-wrapper .right-valute-list .valute--right,
 .container .right-valute-wrapper .left-valute-list .valute,
-.container .right-valute-wrapper .right-valute-list .valute {
+.container .right-valute-wrapper .left-valute-list .valute--right,
+.container .right-valute-wrapper .right-valute-list .valute,
+.container .right-valute-wrapper .right-valute-list .valute--right {
   display: flex;
   justify-content: center;
   align-items: center;
