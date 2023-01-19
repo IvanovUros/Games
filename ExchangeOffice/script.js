@@ -24,11 +24,18 @@ const leftValuteList = document.querySelector('.left-valute-list');
 const rightValuteList = document.querySelector('.right-valute-list');
 const currentValueLeft = document.querySelector('.current-value-left');
 const currentValueRight = document.querySelector('.current-value-right');
-console.log(ratesArray);
-console.log(symbolsArray);
+const convertBtn = document.getElementById('convertBtn');
+const input = document.getElementById('input');
+const output = document.querySelector('.output');
+const ratesKeys = Object.keys(ratesArray[4]);
+const ratesValues = Object.values(ratesArray[4]);
 
 let leftListOpen = false;
 let rightListOpen = false;
+let leftValueSelected = false;
+let rightValueSelected = false;
+let inputRate;
+let outputRate;
 
 leftValuteBtn.addEventListener('click', () => {
     if (!leftListOpen) {
@@ -48,6 +55,13 @@ leftValuteBtn.addEventListener('click', () => {
         for (let i = 0; i < symbolsArray.length; i++) { 
             valuteArray[i].addEventListener('click', () => {
                 currentValueLeft.innerHTML = symbolsArray[i].code;
+                let currentIndex = ratesKeys.indexOf(symbolsArray[i].code)
+                console.log(ratesValues[currentIndex]);
+                leftValueSelected = true;
+                inputRate = ratesValues[currentIndex];
+                if (leftValueSelected && rightValueSelected) {
+                    input.disabled = false;
+                }
             })
         }
     } else {
@@ -77,6 +91,13 @@ rightValuteBtn.addEventListener('click', () => {
         for (let i = 0; i < symbolsArray.length; i++) { 
             valuteRightArray[i].addEventListener('click', () => {
                 currentValueRight.innerHTML = symbolsArray[i].code;
+                let currentIndex = ratesKeys.indexOf(symbolsArray[i].code)
+                console.log(ratesValues[currentIndex]);
+                rightValueSelected = true;
+                outputRate = ratesValues[currentIndex];
+                if (leftValueSelected && rightValueSelected) {
+                    input.disabled = false;
+                }
             })
         }
     } else {
@@ -88,5 +109,11 @@ rightValuteBtn.addEventListener('click', () => {
     }
 })
 
+input.addEventListener('keydown', () => {
+    convertBtn.disabled = false;
+})
 
-
+convert = () => {
+    let toEUR = input.value / inputRate;
+    output.innerHTML = toEUR * outputRate;
+}
