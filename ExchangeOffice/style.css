@@ -40,13 +40,16 @@ header .heading {
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 15rem;
+  width: 17rem;
   height: 5rem;
   margin: 2.5rem;
   margin-top: 4rem;
   border-radius: 20px;
   background-color: rgb(243, 159, 49);
   top: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 .container .left-valute-wrapper .current-value-left,
 .container .left-valute-wrapper .current-value-right,
@@ -61,6 +64,7 @@ header .heading {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
+  transition: all 0.3s ease-in;
 }
 .container .left-valute-wrapper .left-valute-list,
 .container .left-valute-wrapper .right-valute-list,
@@ -76,7 +80,7 @@ header .heading {
   top: 100%;
   list-style: none;
   overflow: auto;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   z-index: 1;
 }
 .container .left-valute-wrapper .left-valute-list .valute,
@@ -96,6 +100,16 @@ header .heading {
   font-size: 1.5rem;
   color: rgb(87, 87, 87);
 }
+.container .left-valute-wrapper:hover,
+.container .right-valute-wrapper:hover {
+  background-color: rgb(87, 87, 87);
+}
+.container .left-valute-wrapper:hover .current-value-left,
+.container .left-valute-wrapper:hover .current-value-right,
+.container .right-valute-wrapper:hover .current-value-left,
+.container .right-valute-wrapper:hover .current-value-right {
+  color: rgb(243, 159, 49);
+}
 .container .left-valute-wrapper {
   left: 0;
 }
@@ -111,7 +125,7 @@ header .heading {
   top: 0;
   left: 0;
   margin-top: 15rem;
-  margin-left: 2.5rem;
+  margin-left: 3.5rem;
   text-align: center;
   background-color: rgb(253, 242, 229);
   z-index: 0;
@@ -122,7 +136,9 @@ header .heading {
   width: 10rem;
   height: 2rem;
   top: 0;
-  margin-top: 15.5rem;
+  margin-top: 15.7rem;
+  background-color: transparent;
+  border-radius: 10px;
 }
 .container .output {
   width: 15rem;
@@ -133,7 +149,7 @@ header .heading {
   top: 0;
   right: 0;
   margin-top: 15rem;
-  margin-right: 2.5rem;
+  margin-right: 3.5rem;
   z-index: 0;
   background-color: rgb(253, 242, 229);
   display: flex;

@@ -21,12 +21,6 @@
   padding: 2rem;
   flex-direction: column;
 }
-.container h1 {
-  font-size: 4rem;
-  color: #56a5eb;
-  position: absolute;
-  top: 5rem;
-}
 .container .btn {
   width: 20rem;
   height: 5rem;

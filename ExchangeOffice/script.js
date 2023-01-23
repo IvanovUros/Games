@@ -9,7 +9,6 @@ fetch ('https://api.exchangerate.host/latest').then((response) => {
 fetch ('https://api.exchangerate.host/symbols').then((response) => {
     return response.json();
 }).then(data => {
-    // console.log(Object.keys(data.symbols));
     localStorage.setItem('symbolsArray',JSON.stringify(Object.values(data.symbols)));
     symbolsArray.push(data.symbols)
 }).catch((err) => {
@@ -29,6 +28,7 @@ const input = document.getElementById('input');
 const output = document.querySelector('.output');
 const ratesKeys = Object.keys(ratesArray[4]);
 const ratesValues = Object.values(ratesArray[4]);
+const allowedCharacters = /[0-9]/;
 
 let leftListOpen = false;
 let rightListOpen = false;
@@ -39,6 +39,7 @@ let outputRate;
 
 leftValuteBtn.addEventListener('click', () => {
     if (!leftListOpen) {
+        leftValuteBtn.style.overflow = 'initial';
         leftValuteList.style.height = '30rem'
         leftListOpen = true;
         for (let i = 0; i < symbolsArray.length; i++) {
@@ -75,7 +76,8 @@ leftValuteBtn.addEventListener('click', () => {
 
 rightValuteBtn.addEventListener('click', () => {
     if (!rightListOpen) {
-        rightValuteList.style.height = '30rem'
+        rightValuteBtn.style.overflow = 'initial';
+        rightValuteList.style.height = '30rem';
         rightListOpen = true;
         for (let i = 0; i < symbolsArray.length; i++) {
             rightValuteList.innerHTML += `<li class="valute--right">${symbolsArray[i].code}</li>`
@@ -109,8 +111,11 @@ rightValuteBtn.addEventListener('click', () => {
     }
 })
 
-input.addEventListener('keydown', () => {
-    convertBtn.disabled = false;
+input.addEventListener('keypress', e => {
+    if (!allowedCharacters.test(e.key)) {
+        convertBtn.disabled = false;
+        e.preventDefault();
+    }
 })
 
 convert = () => {
