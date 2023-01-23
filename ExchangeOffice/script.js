@@ -32,13 +32,17 @@ leftValuteBtn.addEventListener('click', () => {
         leftListOpen = true;
         for (let i = 0; i < symbolsArray.length; i++) {
             leftValuteList.innerHTML += `<li class="valute">${symbolsArray[i].code}</li>`
+            let currentValute = document.querySelector('.valute')
+            currentValute.addEventListener('click', () => {
+                console.log(symbolsArray[i].code)
+            })
         }
     } else {
-        leftValuteList.style.height = '0'
-        leftListOpen = false;
-        setTimeout(function () {
-            leftValuteList.innerHTML = '';
-        }, 300);
+        // leftListOpen = false;
+        // leftValuteList.style.height = '0'
+        // setTimeout(function () {
+        //     leftValuteList.innerHTML = '';
+        // }, 300);
     }
 })
 
@@ -49,13 +53,15 @@ rightValuteBtn.addEventListener('click', () => {
         rightListOpen = true;
         for (let i = 0; i < symbolsArray.length; i++) {
             rightValuteList.innerHTML += `<li class="valute">${symbolsArray[i].code}</li>`
+            let currentValute = Array.from(document.getElementsByClassName('valute'))
+            currentValute.forEach(elem,)
         }
     } else {
-        rightValuteList.style.height = '0'
-        rightListOpen = false;
-        setTimeout(function () {
-            rightValuteList.innerHTML = '';
-        }, 300);
+        // rightListOpen = false;
+        // rightValuteList.style.height = '0'
+        // setTimeout(function () {
+        //     rightValuteList.innerHTML = '';
+        // }, 300);
     }
 })
 
