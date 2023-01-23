@@ -77,11 +77,16 @@ header .heading {
   list-style: none;
   overflow: auto;
   transition: all 0.3s ease-in;
+  z-index: 1;
 }
 .container .left-valute-wrapper .left-valute-list .valute,
+.container .left-valute-wrapper .left-valute-list .valute--right,
 .container .left-valute-wrapper .right-valute-list .valute,
+.container .left-valute-wrapper .right-valute-list .valute--right,
 .container .right-valute-wrapper .left-valute-list .valute,
-.container .right-valute-wrapper .right-valute-list .valute {
+.container .right-valute-wrapper .left-valute-list .valute--right,
+.container .right-valute-wrapper .right-valute-list .valute,
+.container .right-valute-wrapper .right-valute-list .valute--right {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,4 +101,43 @@ header .heading {
 }
 .container .right-valute-wrapper {
   right: 0;
+}
+.container .input-container {
+  width: 15rem;
+  height: 3rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 15rem;
+  margin-left: 2.5rem;
+  text-align: center;
+  background-color: rgb(253, 242, 229);
+  z-index: 0;
+  font-size: 1.2rem;
+}
+.container #convertBtn {
+  position: absolute;
+  width: 10rem;
+  height: 2rem;
+  top: 0;
+  margin-top: 15.5rem;
+}
+.container .output {
+  width: 15rem;
+  height: 3rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 15rem;
+  margin-right: 2.5rem;
+  z-index: 0;
+  background-color: rgb(253, 242, 229);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
 }/*# sourceMappingURL=style.css.map */
