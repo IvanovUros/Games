@@ -1,11 +1,3 @@
-fetch ('https://api.exchangerate.host/latest').then((response) => {
-    return response.json();
-}).then(data => {
-    localStorage.setItem('ratesArray',JSON.stringify(Object.values(data)));
-}).catch((err) => {
-    console.log(err);
-})
-
 fetch ('https://api.exchangerate.host/symbols').then((response) => {
     return response.json();
 }).then(data => {
@@ -15,7 +7,6 @@ fetch ('https://api.exchangerate.host/symbols').then((response) => {
     console.log(err);
 })
 
-const ratesArray = JSON.parse(localStorage.getItem('ratesArray'));
 const symbolsArray = JSON.parse(localStorage.getItem('symbolsArray'));
 const leftValuteBtn = document.querySelector('.left-valute-wrapper');
 const rightValuteBtn = document.querySelector('.right-valute-wrapper');
@@ -26,16 +17,17 @@ const currentValueRight = document.querySelector('.current-value-right');
 const convertBtn = document.getElementById('convertBtn');
 const input = document.getElementById('input');
 const output = document.querySelector('.output');
-const ratesKeys = Object.keys(ratesArray[4]);
-const ratesValues = Object.values(ratesArray[4]);
 const allowedCharacters = /[0-9]/;
 
 let leftListOpen = false;
 let rightListOpen = false;
 let leftValueSelected = false;
 let rightValueSelected = false;
-let inputRate;
-let outputRate;
+let parameters = {
+    from: "",
+    to: "",
+    amount: ""
+}
 
 leftValuteBtn.addEventListener('click', () => {
     if (!leftListOpen) {
@@ -56,10 +48,8 @@ leftValuteBtn.addEventListener('click', () => {
         for (let i = 0; i < symbolsArray.length; i++) { 
             valuteArray[i].addEventListener('click', () => {
                 currentValueLeft.innerHTML = symbolsArray[i].code;
-                let currentIndex = ratesKeys.indexOf(symbolsArray[i].code)
-                console.log(ratesValues[currentIndex]);
+                parameters.from = symbolsArray[i].code;
                 leftValueSelected = true;
-                inputRate = ratesValues[currentIndex];
                 if (leftValueSelected && rightValueSelected) {
                     input.disabled = false;
                 }
@@ -93,10 +83,8 @@ rightValuteBtn.addEventListener('click', () => {
         for (let i = 0; i < symbolsArray.length; i++) { 
             valuteRightArray[i].addEventListener('click', () => {
                 currentValueRight.innerHTML = symbolsArray[i].code;
-                let currentIndex = ratesKeys.indexOf(symbolsArray[i].code)
-                console.log(ratesValues[currentIndex]);
+                parameters.to = symbolsArray[i].code;
                 rightValueSelected = true;
-                outputRate = ratesValues[currentIndex];
                 if (leftValueSelected && rightValueSelected) {
                     input.disabled = false;
                 }
@@ -112,13 +100,21 @@ rightValuteBtn.addEventListener('click', () => {
 })
 
 input.addEventListener('keypress', e => {
+    convertBtn.disabled = false;
     if (!allowedCharacters.test(e.key)) {
-        convertBtn.disabled = false;
         e.preventDefault();
     }
 })
 
 convert = () => {
-    let toEUR = input.value / inputRate;
-    output.innerHTML = toEUR * outputRate;
+    parameters.amount = input.value;
+    let link = `https://api.exchangerate.host/convert?` + new URLSearchParams(parameters);
+    fetch (link).then((response) => {
+        return response.json();
+    }).then(data => {
+        output.innerHTML = data.result;
+    }).catch((err) => {
+        console.log(err);
+    })
 }
+
